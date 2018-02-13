@@ -1,0 +1,41 @@
+{
+	"_id": "3008441",
+	"_icon": "C:\\Users\\Desarrollador\\Documents\\Prototipo Transbank\\transbank.WebProjects\\Default.WebProject\\img\\favicon.png",
+	"_ssL": "",
+	"_ssP": "",
+	"_ssA9": "",
+	"_initialUxComponent": "login",
+	"_componentLastUpdated": "13/02/2018 12:01:18 81 pm",
+	"_ajaxUrl": "http://nubisonlab.cl:1580/transbankf7/",
+	"_additionalFiles": "",
+	"_userName": "wtwx6irfQI3iOx7OvgJt1zo2UrrNaJJqmN8Feh/S5gI=",
+	"_pw": "nEUmwR92tRwv6SDFKfexhg==",
+	"_token": "",
+	"timeout": {
+		"phoneGapBuild": "<default>",
+		"phoneGapBuildLogin": "<default>",
+		"getAppIcon": "<default>"
+	},
+	"apperian": {
+		"enableOptions": false,
+		"loginName": "osLnGM4pUcQ=",
+		"password": "c5JMXi9Y+Ko=",
+		"serverURL": "https://easesvc.apperian.com/ease.interface.php"
+	},
+	"backupConfigFile": true,
+	"_phonegapBuilderVersion": "1",
+	"useImageMagick": true,
+	"indexHTMLMetaTags": "",
+	"genAppZipFile": false,
+	"zipFileLocation": "",
+	"buildTarget": "Phonegap Build",
+	"cliProjectFolder": "",
+	"_androidBuildFlag": true,
+	"_iOSBuildFlag": false,
+	"_windowsBuildFlag": false,
+	"_baseLineGuid": "059972ebb7864a34bfbbb366cfa19499",
+	"enableInstantUpdate": false,
+	"instantUpdateSettingsJSON": "",
+	"launchAppManager": true,
+	"_sqlitedbdefined": false
+}
