@@ -78,8 +78,8 @@ iframe {-webkit-user-select: text;}
 
 </style>
 
-<link rel="stylesheet" type="text/css" href="css/iOS7/style.css?116">
-<link rel="stylesheet" type="text/css" href="css/_sharedStyles/style.css?116">
+<link rel="stylesheet" type="text/css" href="css/iOS7/style.css?144">
+<link rel="stylesheet" type="text/css" href="css/_sharedStyles/style.css?144">
 
 <link rel="stylesheet" type="text/css" href="css/CSSIcons/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/CSSIcons/font-awesome/fonts/fontawesome-webfont.eot">
@@ -590,7 +590,7 @@ if(typeof DLG1_DlgObj != 'undefined' && typeof DLG1_DlgObj._panelCardResize != '
 	body: {
 		content: {
 			type: 'html',
-			src: '<div class="A5CWLayout" style="width: " >\n\t<div id="DLG1.V.R1.STATICTEXT_17" title=""  class="" style="box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;"   ><div id="fingerprintscanner3"></div></div>\n</div><br  style="clear:both; " />\n<div style="clear: both; font: 0px arial; height: 0px; width: 0px;"></div>'
+			src: '<div class="A5CWLayout" style="width: " >\n\t<div id="DLG1.V.R1.STATICTEXT_17" title=""  class="" style="box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;"   ><div id="fingerprintscanner3"></div></div>\n</div><br  style="clear:both; " />\n<div class="A5CWLayout" style="width: " >\n\t<button type="button" id="DLG1.V.R1.BUTTON_4"    ></button>\n</div><br  style="clear:both; " />\n<div style="clear: both; font: 0px arial; height: 0px; width: 0px;"></div>'
 		},
 		scroll: {
 			axis: 'both',
@@ -627,7 +627,9 @@ if(typeof DLG1_DlgObj != 'undefined' && typeof DLG1_DlgObj._panelCardResize != '
 	overlay: {
 	},
 	className: 'page',
-	onSize: function() {if(typeof DLG1_DlgObj != 'undefined' && typeof DLG1_DlgObj._panelCardResize != 'undefined') { DLG1_DlgObj._panelCardResize('INFO'); };}
+	onSize: function() {;
+if(typeof DLG1_DlgObj != 'undefined') {var mObj = DLG1_DlgObj.getControl('LST_PRUEBA'); if(mObj) mObj.refresh();}
+if(typeof DLG1_DlgObj != 'undefined' && typeof DLG1_DlgObj._panelCardResize != 'undefined') { DLG1_DlgObj._panelCardResize('INFO'); };}
 })
 }
 ],{
@@ -830,6 +832,9 @@ DLG1_DlgObj.showWaitMessage('page',{useCSSAnimation: false,message: '',icon: 'im
 		__afterAjaxCallbackComplete: function(e) {
 DLG1_DlgObj.hideWaitMessage('page');
 		},
+		onAndroidBackButton: function(e) {
+DLG1_DlgObj.panelNavigate('PANELNAVIGATOR_2','HistoryBack');
+		},
 		onPhoneGapReady: function(e) {
 flurryAnalytics = new FlurryAnalytics({ appKey: 'NYVGBDJBR68BQ7M8K666' });
 window.ga.startTrackerWithId('UA-113033880-1', successCallback, errorCallback);
@@ -837,17 +842,7 @@ GA_login();
 		},
 		afterLogin: function(e) {
 DLG1_DlgObj.panelSetActive('PANEL_APPLICATION');
-try {
-	window.ga.setUserId('1@nubison.cl');
-	flurryAnalytics.setUserId('1@nubison.cl', function() {
-	    console.log('Cool!');
-	}, function(err) {
-	    console.error(['WTF?', err]);
-	});
-}
-catch(err) {
-	    console.log('WTF? ' + err);
-}
+DLG1_DlgObj.ajaxCallback('','','userGUID2','','','');
 GA_escritorio();
 		},
 		afterFailedLogin: function(e) {
@@ -872,11 +867,6 @@ if(!DLG1_DlgObj.fieldHelpers['USERNAME'])DLG1_DlgObj.fieldHelpers['USERNAME'] = 
 if(!DLG1_DlgObj.fieldHelpers['PASSWORD'])DLG1_DlgObj.fieldHelpers['PASSWORD'] = new A5.Edit({
 	watermark: {
 		text: 'Clave'
-	}
-});
-if(!DLG1_DlgObj.fieldHelpers['TXTSUMINISTRO'])DLG1_DlgObj.fieldHelpers['TXTSUMINISTRO'] = new A5.Edit({
-	watermark: {
-		text: 'Suministro'
 	}
 });
 if(!DLG1_DlgObj.fieldHelpers['TXTCOMENTARIOS'])DLG1_DlgObj.fieldHelpers['TXTCOMENTARIOS'] = new A5.Edit({
@@ -969,9 +959,18 @@ DLG1_DlgObj._buttons['BUTTON_3'] = new A5.Button({
 },
 	theme: 'iOS7'
 });
+DLG1_DlgObj._buttons['BUTTON_4'] = new A5.Button({
+	layout: 'text',
+	style: 'box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;',
+	html: 'Button',
+	onClick: function() { 
+},
+	theme: 'iOS7'
+});
 DLG1_DlgObj._buttons['LOGIN_BUTTON'].bind('DLG1.V.R1.LOGIN_BUTTON');
 DLG1_DlgObj._buttons['LOGOUT_BUTTON'].bind('DLG1.V.R1.LOGOUT_BUTTON');
 DLG1_DlgObj._buttons['BUTTON_3'].bind('DLG1.V.R1.BUTTON_3');
+DLG1_DlgObj._buttons['BUTTON_4'].bind('DLG1.V.R1.BUTTON_4');
 DLG1_DlgObj._listViewSettings['LST_SALDO'] = {
 	_hasDependentLists: false,
 	_dataSourceType: 'SQL',
@@ -2412,6 +2411,17 @@ DLG1_DlgObj._functions.calcOrientation = function() {
     options.enableHighAccuracy = true; 
     var _watchID = navigator.geolocation.watchPosition(_checkLocation, _onError, options);
     var _timerID = setTimeout(_stopLocationCheck, options.maxWait); 
+}
+DLG1_DlgObj._functions._handleBackButton = function(e) {
+	DLG1_DlgObj._executeEvent('onAndroidBackButton',{event:e})
+}
+if(typeof device != 'undefined') {
+	if(device.platform == 'Android') {
+		if(typeof window._androidBack == 'undefined') {
+			document.addEventListener('backbutton', DLG1_DlgObj._functions._handleBackButton , false);
+			window._androidBack = true;
+		}
+	}
 }
 		} , false);
 		DLG1_DlgObj._onPhoneGapReady = function() { DLG1_DlgObj._executePhoneGapDelayed(); }
@@ -8665,6 +8675,14 @@ $e.add('DLG1.V.R1.BUTTON_3',A5.d.evnts.click,function(e) {
 DLG1_DlgObj.ajaxCallback('','','system:CRUDaction','','_xbfunction=CRUDAction_7cbf94f5ef1c42c3b047c55bf6cbabae');
 },this,false,'DLG1.V.R1.BUTTON_3');
 
+
+
+
+
+$e.add('DLG1.V.R1.BUTTON_4',A5.d.evnts.click,function(e) {
+DLG1_DlgObj.ajaxCallback('','','userGUID','','',{deviceOfflineFunction: function() {   }});
+},this,false,'DLG1.V.R1.BUTTON_4');
+
 DLG1_DlgObj.prepare();DLG1_DlgObj.populate(DLG1_DlgObj.originalValues[0]);
 DLG1_DlgObj._fireWatches(1);
 
@@ -8741,6 +8759,7 @@ if(listObj) listObj._state.pageCount = 1;
 DLG1_DlgObj._list_executeEvent('LST_SALDO','afterRenderComplete',{});
 
 if(listObj._refreshStateMessages) listObj._refreshStateMessages();
+
 
 
 
